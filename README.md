@@ -36,7 +36,7 @@ db = create_engine("dialect+driver://username:password@host:port/database")
 Run models:
 
 ```bash
-python run_scripts.py
+python run_models.py
 ```
 
 ## License
