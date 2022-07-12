@@ -7,19 +7,26 @@
 
 ## Installation
 
-1. Install [dbt-utils](https://hub.getdbt.com/dbt-labs/dbt_utils/latest/):
+1. [Clone](https://github.com/git-guides/git-clone) repository:
+
+    ```bash
+    git clone https://github.com/esadek/id_stitching_dbt.git
+    cd id_stitching_dbt
+    ```
+
+2. Install [dbt-utils](https://hub.getdbt.com/dbt-labs/dbt_utils/latest/):
 
     ```bash
     dbt deps
     ```
 
-2. Install [SQLAlchemy](https://www.sqlalchemy.org/):
+3. Install [SQLAlchemy](https://www.sqlalchemy.org/):
 
     ```bash
     pip install SQLAlchemy
     ```
 
-3. Install appropriate [dialect and DBAPI driver](https://docs.sqlalchemy.org/en/14/dialects/index.html):
+4. Install appropriate [dialect and DBAPI driver](https://docs.sqlalchemy.org/en/14/dialects/index.html):
 
     ```bash
     pip install <dialect-package>
