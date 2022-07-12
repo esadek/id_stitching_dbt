@@ -5,7 +5,7 @@ with columns as (
     from
         {{ source('information_schema', 'columns') }}
     where
-        lower(column_name) in ('anonymous_id', 'user_id', 'email', 'context_traits_email')
+        lower(column_name) in {{ var('id-columns') }}
 )
 
 select
