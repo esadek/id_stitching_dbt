@@ -7,29 +7,41 @@
 
 ## Installation
 
-Install dbt dependencies:
+1. Install [dbt-utils](https://hub.getdbt.com/dbt-labs/dbt_utils/latest/):
 
-```bash
-dbt deps
-```
+    ```bash
+    dbt deps
+    ```
 
-Install required Python packages:
+2. Install [SQLAlchemy](https://www.sqlalchemy.org/):
 
-```bash
-pip install -r requirements.txt
-```
+    ```bash
+    pip install SQLAlchemy
+    ```
 
-Set profile in [dbt_project.yml](dbt_project.yml):
+3. Install appropriate [dialect and DBAPI driver](https://docs.sqlalchemy.org/en/14/dialects/index.html):
 
-```yaml
-profile: 'your_profile_name'
-```
+    ```bash
+    pip install <dialect-package>
+    ```
 
-Set connection string in [run_models.py](run_models.py):
+## Configuration
 
-```python
-db = create_engine("dialect+driver://username:password@host:port/database")
-```
+1. Set [profile](https://docs.getdbt.com/dbt-cli/configure-your-profile) and ID columns in [dbt_project.yml](dbt_project.yml):
+
+    ```yaml
+    profile: 'profile_name'
+    ```
+
+    ```yaml
+    id-columns: ('anonymous_id', 'user_id', 'email')
+    ```
+
+2. Set [database URL](https://docs.sqlalchemy.org/en/14/core/engines.html?highlight=url#database-urls) in [run_models.py](run_models.py):
+
+    ```python
+    db = create_engine("dialect+driver://username:password@host:port/database")
+    ```
 
 ## Usage
 
