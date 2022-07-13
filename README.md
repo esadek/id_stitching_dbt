@@ -1,5 +1,11 @@
 # ID Stitching dbt Project
 
+[Overview](#overview) · [Prerequisites](#prerequisites) · [Installation](#installation) · [Configuration](#configuration) · [Usage](#usage) · [License](#license)
+
+## Overview
+
+This project is comprised of three dbt models and a Python script. The [`queries`](models/queries.sql) model generates select statements which pull IDs from your tables. The [`id_graph`](models/id_graph.sql) model combines the results of those select statement to create the ID graph the first time it is run, and matches edges (IDs) on subsequent runs. The [`check_edges`](models/check_edges.sql) model determines if there are still edges to match. The [`run_models`](run_models.py) script first runs the `queries` and `id_graph` models and compiles the `check_edges` model. It then runs the `id_graph` model until the `check_edges` query indicates that all edges are matched.
+
 ## Prerequisites
 
 - [dbt Core](https://docs.getdbt.com/dbt-cli/install/overview)
@@ -7,7 +13,7 @@
 
 ## Installation
 
-1. [Clone](https://github.com/git-guides/git-clone) repository:
+1. Clone repository:
 
     ```bash
     git clone https://github.com/esadek/id_stitching_dbt.git
