@@ -15,6 +15,9 @@
     from (
         {{ ' union '.join(sql_statements) }}
     ) s
+    where
+        lower(edge_a) not in {{ var('id-denylist') }}
+        and lower(edge_b) not in {{ var('id-denylist') }}
 
 {% else %}
 
