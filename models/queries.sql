@@ -9,7 +9,7 @@ with columns as (
 )
 
 select
-    'select distinct lower(' || a.cn || ') as edge_a, lower(''' || a.cn  || ''') as edge_a_label, lower(' || b.cn || ') as edge_b, lower(''' || b.cn  || ''') as edge_b_label from ' ||  a.tn || ' where coalesce(' || a.cn ||  ', '''') <> '''' and coalesce(' || b.cn ||  ', '''') <> ''''' as sql_to_run
+    'select distinct ' || a.cn || '::text as edge_a, ''' || a.cn  || ''' as edge_a_label, ' || b.cn || '::text as edge_b, ''' || b.cn  || ''' as edge_b_label from ' ||  a.tn || ' where coalesce(' || a.cn ||  ', '''') <> '''' and coalesce(' || b.cn ||  ', '''') <> ''''' as sql_to_run
 from
     columns a
 inner join
