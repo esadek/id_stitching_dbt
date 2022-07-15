@@ -11,7 +11,7 @@
         edge_a_label,
         edge_b,
         edge_b_label,
-        now() as edge_timestamp
+        {{ dbt_utils.current_timestamp() }} as edge_timestamp
     from (
         {{ ' union '.join(sql_statements) }}
     ) s
