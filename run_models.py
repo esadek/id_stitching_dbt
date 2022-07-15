@@ -4,7 +4,7 @@ from sqlalchemy import create_engine
 
 db = create_engine("dialect+driver://username:password@host:port/database")
 
-system("dbt run --select queries edges; dbt compile --select check_edges")
+system("dbt run --full-refresh --select queries edges; dbt compile --select check_edges")
 
 with open("target/compiled/id_stitching/models/check_edges.sql") as file:
     query = file.read()
