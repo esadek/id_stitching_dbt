@@ -4,7 +4,9 @@
 
 ## Overview
 
-This project is comprised of four dbt models and a Python script. The [`queries`](models/queries.sql) model generates select statements which pull IDs from your tables. The [`edges`](models/edges.sql) model combines the results of those select statement to create a table containing edges (IDs) the first time it is run, and matches edges on subsequent runs. The [`check_edges`](models/check_edges.sql) model determines if there are still edges to match. The [id_graph](models/id_graph.sql) model creates an ID graph view. The [`run_models`](run_models.py) script first runs the `queries` and `edges` models, and compiles the `check_edges` model. It then runs the `edges` model until the `check_edges` query indicates that all edges are matched. Finally, it runs the `id_graph` model to create the ID graph view.
+This project is comprised of four dbt models and a Python script. The [`queries`](models/queries.sql) model generates select statements which pull IDs from your tables. The [`edges`](models/edges.sql) model combines the results of those select statement to create a table containing edges (IDs) the first time it is run, and matches edges on subsequent runs. The [`check_edges`](models/check_edges.sql) model determines if there are still edges to match. The [`id_graph`](models/id_graph.sql) model creates an ID graph view. The [`run_models`](run_models.py) script first runs the `queries` and `edges` models, and compiles the `check_edges` model. It then runs the `edges` model until the `check_edges` query indicates that all edges are matched. Finally, it runs the `id_graph` model to create the ID graph view.
+
+![Lineage Graph](lineage.png)
 
 ## Prerequisites
 
